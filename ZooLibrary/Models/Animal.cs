@@ -1,8 +1,8 @@
 ﻿namespace ZooLibrary.Models;
 
-public class Animal
+public class Animal(string type, string name, decimal weight)
 {
-    public string Type { get; set; }
-    public string Name { get; set; }
-    public decimal Weight { get; set; }
+    public string Type { get; } = type;
+    public string Name { get; } = name;
+    public decimal Weight { get; } = weight;
 }

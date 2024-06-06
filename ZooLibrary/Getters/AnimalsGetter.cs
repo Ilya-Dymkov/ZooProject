@@ -9,6 +9,6 @@ public class AnimalsGetter : IAnimalsGetter
         (await File.ReadAllLinesAsync(filePath))
             .Skip(1)
             .Select(line => line.Split(';'))
-            .Select(parts => new Animal { Type = parts[0], Name = parts[1], Weight = decimal.Parse(parts[2]) })
+            .Select(parts => new Animal(parts[0], parts[1], decimal.Parse(parts[2])))
             .ToList();
 }
