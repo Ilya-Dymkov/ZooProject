@@ -1,11 +1,11 @@
-﻿using ZooLibrary.Getters.GettersSource;
+﻿using ZooLibrary.Getters;
 using ZooLibrary.Models;
 
-namespace ZooLibrary.Getters;
+namespace OutputToConsole.Getters;
 
-public class AnimalTypesGetter : IAnimalTypesGetter
+public class AnimalTypesGetterFromFile : IAnimalTypesGetter<string>
 {
-    public async Task<IDictionary<string, AnimalType>> GetAnimalTypesFromFile(string filePath)
+    public async Task<IDictionary<string, AnimalType>> GetAnimalTypes(string filePath)
     {
         var animalTypes = new Dictionary<string, AnimalType>();
         

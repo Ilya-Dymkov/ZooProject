@@ -1,11 +1,11 @@
-﻿using ZooLibrary.Getters.GettersSource;
+﻿using ZooLibrary.Getters;
 using ZooLibrary.Models;
 
-namespace ZooLibrary.Getters;
+namespace OutputToConsole.Getters;
 
-public class AnimalsGetter : IAnimalsGetter
+public class AnimalsGetterFromFile : IAnimalsGetter<string>
 {
-    public async Task<IList<Animal>> GetAnimalsFromFile(string filePath) =>
+    public async Task<IList<Animal>> GetAnimals(string filePath) =>
         (await File.ReadAllLinesAsync(filePath))
             .Skip(1)
             .Select(line => line.Split(';'))

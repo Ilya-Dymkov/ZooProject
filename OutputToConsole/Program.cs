@@ -1,13 +1,12 @@
-﻿using ZooLibrary.Getters;
+﻿using OutputToConsole.Getters;
 using ZooLibrary.ZooMethods;
 
-var zooCalculator = new ZooCalculator(new FoodPriceGetter(), new AnimalTypesGetter(), new AnimalsGetter());
-var totalCost = zooCalculator.CalculateTotalCost(
-    getter => getter.GetFoodPricesFromFile(
-        @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\prices.txt"),
-    getter => getter.GetAnimalTypesFromFile(
-        @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\animals.csv"),
-    getter => getter.GetAnimalsFromFile(
-        @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\zoo.csv"));
+var zooCalculator = new ZooCalculator<string, string, string>(
+    new FoodPriceGetterFromFile(), new AnimalTypesGetterFromFile(), new AnimalsGetterFromFile());
 
-Console.WriteLine($"Total cost: {await totalCost:C}");
+var stringTotalCost = zooCalculator.CalculateTotalCost(
+    @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\Data\prices.txt",
+    @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\Data\animals.csv",
+    @"C:\Users\Ilya\RiderProjects\ZooProject\OutputToConsole\Data\zoo.csv");
+
+Console.WriteLine($"Total cost: {await stringTotalCost:C}");

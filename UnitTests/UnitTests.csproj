@@ -22,6 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\OutputToConsole\OutputToConsole.csproj" />
       <ProjectReference Include="..\ZooLibrary\ZooLibrary.csproj" />
     </ItemGroup>
 

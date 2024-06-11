@@ -1,11 +1,11 @@
-﻿using ZooLibrary.Getters.GettersSource;
+﻿using ZooLibrary.Getters;
 using ZooLibrary.Models;
 
-namespace ZooLibrary.Getters;
+namespace OutputToConsole.Getters;
 
-public class FoodPriceGetter : IFoodPriceGetter
+public class FoodPriceGetterFromFile : IFoodPriceGetter<string>
 {
-    public async Task<FoodPrice> GetFoodPricesFromFile(string filePath)
+    public async Task<FoodPrice> GetFoodPrices(string filePath)
     {
         var foodPrice = new FoodPrice();
         
